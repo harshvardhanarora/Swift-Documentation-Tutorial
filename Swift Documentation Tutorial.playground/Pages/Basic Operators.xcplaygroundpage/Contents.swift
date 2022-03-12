@@ -18,9 +18,8 @@ let b = a
 b // 45
 
 let (x, y) = (a, b)
-(x, y)
-// x = 45 and y = 45
-// (x, y) is a compound type called Tuple. Will be discussed in later chapters
+(x, y) // x = 45 and y = 45
+// (x, y) is a compound type called Tuple. Will be discussed in later tutorials
 
 /*
  -----------------------------------------------------------------------------------------------------
