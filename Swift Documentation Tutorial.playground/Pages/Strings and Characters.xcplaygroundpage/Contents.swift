@@ -105,7 +105,7 @@ print(helloWorld[startIndex])
 // Output - H
 
 var endIndex = helloWorld.endIndex
-// print(helloWorld[endIndex])
+ print(helloWorld[endIndex])
 // Throws an error because the endIndex is after the last character
 
 endIndex = helloWorld.index(before: endIndex)
