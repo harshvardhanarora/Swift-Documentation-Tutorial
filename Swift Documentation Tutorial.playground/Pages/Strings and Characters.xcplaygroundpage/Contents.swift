@@ -85,12 +85,12 @@ print(statement)
 let acuteE: Character = "\u{E9}"
 let combineE: Character = "\u{65}\u{301}"
 
-var latte = "latte"
-print(latte.count)
+var cafe = "cafe"
+print(cafe.count)
 // Output - 4
-latte += "\u{301}"
+cafe += "\u{301}"
 // Output - latté
-print(latte.count)
+print(cafe.count)
 // Output - 4
 
 /*
