@@ -84,12 +84,24 @@ print(set3) // Output [1, 3, 2]
 var shoppingListSet: Set = ["Milk", "Eggs", "Paint", "Fruits", "Eggs"]
 print(shoppingListSet.count) // Output - 4
 
+/*
+ -----------------------------------------------------------------------------------------------------
+ |  Accessing and Modifying Sets
+ -----------------------------------------------------------------------------------------------------
+*/
+
 shoppingListSet.insert("Chocolate")
 print(shoppingListSet.count) // Output - 5
 shoppingListSet.insert("Milk") // Inserting an element that already exists
 print(shoppingListSet.count) // Output - 5
 
 print(shoppingListSet.contains("Paint")) // Oupput - True
+
+/*
+ -----------------------------------------------------------------------------------------------------
+ |  Iterating over Sets
+ -----------------------------------------------------------------------------------------------------
+*/
 
 for items in shoppingListSet.sorted() {
     print(items, terminator: " ") // Output - Chocolate Eggs Fruits Milk Paint
@@ -116,3 +128,64 @@ let rainbowColors: Set = ["Purple", "Blue", "Green", "Yellow", "Orange", "Red"]
 print(colors.isSubset(of: rainbowColors)) // Output - true
 print(rainbowColors.isSuperset(of: colors)) // Output - true
 print(colors.isDisjoint(with: fruits)) // Output - false
+
+/*
+ -----------------------------------------------------------------------------------------------------
+ |  Creating Dictionaries
+ -----------------------------------------------------------------------------------------------------
+*/
+
+let dict0 = Dictionary<Int, String>()
+let dict1: Dictionary<Int, String> = [:]
+let dict2: [Int: String] = [:]
+let dict3 = [1: "1"] // Dictionary Literal
+
+print(type(of: dict0)) // Output - Dictionary<Int, String>
+print(type(of: dict1)) // Output - Dictionary<Int, String>
+print(type(of: dict2)) // Output - Dictionary<Int, String>
+print(type(of: dict3)) // Output - Dictionary<Int, String>
+
+
+/*
+ -----------------------------------------------------------------------------------------------------
+ |  Accessing and Modifying Dictionaries
+ -----------------------------------------------------------------------------------------------------
+*/
+
+var numbers = [
+    1: "One",
+    2: "Two",
+    4: "Four",
+    7: "Seven",
+    5: "Five"
+]
+
+print(numbers.count) // Output - 5
+print(numbers[5]) // Output - Optional("Five")
+
+numbers[9] = "Nine"
+let oldNum = numbers.updateValue("Eleven", forKey: 11)
+
+numbers[2] = nil // Removes the key-value pair for key - 2
+numbers.removeValue(forKey: 4)
+print(numbers.count) // Output - 5
+
+/*
+ -----------------------------------------------------------------------------------------------------
+ |  Iterating over Dictionaries
+ -----------------------------------------------------------------------------------------------------
+*/
+
+for (numberInt, numberString) in numbers {
+    print("String for \(numberInt) is \(numberString)")
+}
+
+for numberInt in numbers.keys {
+    print(numberInt, terminator: " ")
+}
+
+print("")
+
+for numberString in numbers.values {
+    print(numberString, terminator: " ")
+}
