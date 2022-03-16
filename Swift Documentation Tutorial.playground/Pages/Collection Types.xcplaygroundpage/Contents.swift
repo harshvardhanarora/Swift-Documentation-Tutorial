@@ -95,7 +95,8 @@ print(shoppingListSet.count) // Output - 5
 shoppingListSet.insert("Milk") // Inserting an element that already exists
 print(shoppingListSet.count) // Output - 5
 
-print(shoppingListSet.contains("Paint")) // Oupput - True
+shoppingListSet.remove("Paint")
+print(shoppingListSet.contains("Paint")) // Oupput - false
 
 /*
  -----------------------------------------------------------------------------------------------------
@@ -104,7 +105,7 @@ print(shoppingListSet.contains("Paint")) // Oupput - True
 */
 
 for items in shoppingListSet.sorted() {
-    print(items, terminator: " ") // Output - Chocolate Eggs Fruits Milk Paint
+    print(items, terminator: " ") // Output - Chocolate Eggs Fruits Milk
 }
 
 print("")
