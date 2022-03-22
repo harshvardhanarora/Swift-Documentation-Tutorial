@@ -148,12 +148,12 @@ switch graphPoint {
 
 switch graphPoint {
     case let (x, y) where x == 0 || y == 0: print("Point is on atleast one of the axis") // Ouput
-    case let (x, y): print("Point in not on the axis") // This is not printed
+    case let (x, y): print("Point is on x:\(x), y: \(y)") // This is not printed
 }
 
 switch graphPoint {
     case (0, 0): print("Point is on the origin")
-    case (let distance, 0), (0, let distance): print("Point is on atleast one of the axis") // Ouput
+    case (let distance, 0), (0, let distance): print("Point is at a distance of \(distance) from one of the axis") // Ouput
     default: print("Point is not on the axis")
 }
 
@@ -201,7 +201,7 @@ for iteration in 1...5 {
         default: print("Default", terminator: " ")
     }
 }
-// Output - 1 2 4 5
+// Output - 1 2 4 4 5
 
 print("")
 
@@ -209,12 +209,12 @@ var totalSum = 0
 
 sumLoop: while totalSum < 100 {
     let roll = Int.random(in: 1...10)
-    rollLoop: switch roll {
+    switch roll {
         case let x where x % 2 == 0: totalSum += x * x
-        case 1, 3, 5, 9: break // Breaks out of rollLoop
+        case 1, 3, 5, 9: break // Breaks out of switch
         case 7: continue sumLoop // Moves on the the next sumLoop iteration
-        case 10: break sumLoop // Stops both rollLoop and sumLoop
-        default: break // Breaks out of rollLoop
+        case 10: break sumLoop // Stops both switch and sumLoop
+        default: break // Breaks out of switch
     }
 }
 
@@ -237,3 +237,5 @@ func findDriverNumber(for name: String) {
 }
 
 findDriverNumber(for: "Ocon")
+
+// Output - Driver not found
