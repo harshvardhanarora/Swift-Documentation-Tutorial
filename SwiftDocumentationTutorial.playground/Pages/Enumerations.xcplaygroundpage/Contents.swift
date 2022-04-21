@@ -43,3 +43,46 @@ func doSomething(with vehicle: Vehicle) {
         print("This is a truck")
     }
 }
+
+func doSomethingBetter(with vehicle: Vehicle) {
+    switch vehicle {
+    case .bike:
+        print("This is a bike")
+    case .car:
+        print("This is a car")
+    case .bus:
+        print("This is a bus")
+    case .truck:
+        print("This is a truck")
+    }
+}
+
+enum Direction: CaseIterable {
+    case north, south, east, west
+}
+
+let allDirectionsCount = Direction.allCases.count
+print(allDirectionsCount)
+// Output - 4
+
+enum Travel {
+    case car(distance: Int)
+    case train(Int)
+    case flight(airportName: String, travelHours: Double)
+}
+
+let travelByCar = Travel.car(distance: 560)
+let travelByTrain = Travel.train(500)
+let travelByFlight = Travel.flight(airportName: "Heathrow", travelHours: 1.5)
+
+func checkTravel(for travel: Travel) {
+    switch travel {
+    case .car:
+        print("Travelling by Car")
+    case .train(let distance):
+        print("Travelling \(distance)km by Train")
+    case .flight(airportName: var airportName, _):
+        airportName += "Airport"
+        print("Travelling by Flight from \(airportName)")
+    }
+}
