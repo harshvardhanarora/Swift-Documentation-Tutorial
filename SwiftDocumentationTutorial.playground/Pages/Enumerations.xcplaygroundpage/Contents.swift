@@ -65,6 +65,12 @@ let allDirectionsCount = Direction.allCases.count
 print(allDirectionsCount)
 // Output - 4
 
+/*
+ -----------------------------------------------------------------------------------------------------
+ |  Associated Values
+ -----------------------------------------------------------------------------------------------------
+*/
+
 enum Travel {
     case car(distance: Int)
     case train(Int)
@@ -86,3 +92,52 @@ func checkTravel(for travel: Travel) {
         print("Travelling by Flight from \(airportName)")
     }
 }
+
+/*
+ -----------------------------------------------------------------------------------------------------
+ |  Raw Values
+ -----------------------------------------------------------------------------------------------------
+*/
+
+enum RomanNumber: String {
+    case one = "I"
+    case two = "II"
+    case three = "III"
+    case four = "IV"
+}
+
+let romanTwo = RomanNumber.two
+print(romanTwo.rawValue)
+// Output - II
+
+enum Number: Int {
+    case one = 1
+    case two
+    case three
+    case four
+}
+
+let numberThree = Number.three
+print(numberThree.rawValue)
+// Output - 3
+
+let romanFour = RomanNumber(rawValue: "IV")!
+print(romanFour.rawValue)
+// Output - IV
+
+let numberOne = Number.one
+let anotherNumberOne = Number.one
+print(numberOne == anotherNumberOne)
+
+enum Animal: Equatable {
+    case land(name: String, numberOfLegs: Int)
+    case water(name: String, numberOfFins: Int)
+    case air(name: String, numberOfWings: Int)
+}
+
+let horse = Animal.land(name: "Horse", numberOfLegs: 4)
+let zebra = Animal.land(name: "Zebra", numberOfLegs: 4)
+
+print(horse == zebra)
+
+
