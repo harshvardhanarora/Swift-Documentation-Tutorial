@@ -75,9 +75,6 @@ mark.lastName = "Turner"
 print(mark.fullName)
 // Output - Mark Turner
 
-
-let abcd = "That's it for the day!"
-
 struct Student {
     var firstName: String
     var lastName: String
@@ -106,3 +103,100 @@ print(student.fullName)
 student.fullName = "Harry Potter"
 print(student.lastName)
 // Output - Potter
+
+/*
+ -----------------------------------------------------------------------------------------------------
+ |  Property Observers
+ -----------------------------------------------------------------------------------------------------
+*/
+
+struct Employee {
+    var name: String {
+        willSet {
+            print("New name will be \(newValue)")
+        }
+        didSet {
+            print("Previous name was \(oldValue)")
+        }
+    }
+}
+
+var paige = Employee(name: "Paige Hudson")
+
+paige.name = "Paige Holmes"
+/* Output -
+ 	New name will be Paige Holmes
+ 	Previous name was Paige Hudson
+*/
+
+print("--------------------------------------------------------")
+
+class ParentClass {
+    var firstName: String
+    var lastName: String
+    var fullName: String {
+        get {
+            firstName + " " + lastName
+        }
+        set {
+            let split = newValue.split(separator: " ")
+            firstName = String(split[0])
+            lastName = String(split[1])
+        }
+    }
+    
+    init(firstName: String, lastName: String) {
+        self.firstName = firstName
+        self.lastName = lastName
+    }
+}
+
+class SubClass: ParentClass {
+    override var lastName: String {
+        willSet {
+            print("Last name will be changed to \(newValue)")
+        }
+    }
+    
+    override var fullName: String {
+        willSet {
+            print("Full name will be changed to \(newValue)")
+        }
+    }
+}
+
+let subClass = SubClass(firstName: "Lucy", lastName: "Banks")
+subClass.fullName = "Sherlock Holmes"
+/* Output -
+ 	Full name will be changed to Sherlock Holmes
+ 	Last name will be changed to Holmes
+*/
+
+/*
+ -----------------------------------------------------------------------------------------------------
+ |  Type Properties
+ -----------------------------------------------------------------------------------------------------
+*/
+
+struct Pet {
+    static var description = "This is a Pet"
+    
+    let name: String
+}
+
+let cat = Pet(name: "cat")
+let dog = Pet(name: "dog")
+
+print(cat.name)
+print(dog.name)
+print(Pet.description)
+/*
+ Output -
+ 	cat
+ 	dog
+ 	This is a Pet
+*/
+
+Pet.description = "This is somebody's pet"
+print(Pet.description)
+// Output - This is somebody's pet
